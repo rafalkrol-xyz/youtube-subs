@@ -1,0 +1,11 @@
+# Pulumi dependencies
+/bin/
+/node_modules/
+
+# Python's virtual environment
+venv
+
+# Python script's artifacts
+audio.wav
+video.mp4
+subtitles.srt
