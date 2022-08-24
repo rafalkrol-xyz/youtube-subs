@@ -1,0 +1,16 @@
+pulumi>=3.0.0,<4.0.0
+pulumi-gcp>=6.0.0,<7.0.0
+Arpeggio==1.10.2
+attrs==22.1.0
+autopep8==1.7.0
+dill==0.3.5.1
+grpcio==1.47.0
+parver==0.3.1
+protobuf==4.21.5
+pulumi==3.37.2
+pulumi-gcp==6.32.0
+pycodestyle==2.9.1
+PyYAML==5.4.1
+semver==2.13.0
+six==1.16.0
+toml==0.10.2
