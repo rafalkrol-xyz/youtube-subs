@@ -5,7 +5,13 @@
 # Python's virtual environment
 venv
 
+# Pycache
+__pycache__
+
 # Python script's artifacts
-audio.wav
-video.mp4
-subtitles.srt
+*.wav
+*.mp4
+*.srt
+
+# macOS files
+.DS_Store
