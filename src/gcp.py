@@ -57,13 +57,6 @@ def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_ra
 
     return response
 
-    for i, result in enumerate(response.results):
-        alternative = result.alternatives[0]
-        print("-" * 20)
-        print('alternative', alternative)
-        print("First alternative of result {}".format(i))
-        print(u"Transcript: {}".format(alternative.transcript))
-
 
 def subtitle_generation(speech_to_text_response, bin_size=3):
     """We define a bin of time period to display the words in sync with audio. 
