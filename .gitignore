@@ -13,5 +13,8 @@ __pycache__
 *.mp4
 *.srt
 
+# Python setuptools artifacts
+youtube_subs.egg-info
+
 # macOS files
 .DS_Store
