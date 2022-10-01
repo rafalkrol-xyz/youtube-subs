@@ -17,7 +17,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/rafalkrol-xyz/youtube-subs',
-    py_modules=['youtube_subs'],
+    py_modules=['youtube_subs', 'src'],
     packages=find_packages(),
     install_requires=[requirements],
     python_requires='>=3.10',
