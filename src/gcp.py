@@ -4,14 +4,23 @@ import srt
 import datetime
 
 
-def list_buckets():
-    """Lists all buckets."""
+def list_buckets() -> list[str]:
+    """
+    Lists all buckets in your Google Cloud Platform (GCP) account
+    and returns their names.
+
+    :return: list[str]
+    """
 
     storage_client = storage.Client()
     buckets = storage_client.list_buckets()
 
+    bucket_names = set()
+
     for bucket in buckets:
-        print(bucket.name)
+        bucket_names.add(bucket.name)
+    
+    return bucket_names
 
 
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
