@@ -19,7 +19,7 @@ def cli():
               type=str,
               help="""
               Name of the Google Cloud Storage (GCS) bucket to place the audio files in.
-              By default the CLI will usea bucket containing `temporary_bucket_for_audio_files` in its name.
+              By default the CLI will use a bucket containing `temporary_bucket_for_audio_files` in its name.
               """,
               default=None)
 @click.argument('youtube_link')
