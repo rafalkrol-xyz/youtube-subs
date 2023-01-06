@@ -27,7 +27,7 @@ jobs:
       - uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: youtube-subs/prod
+          stack-name: prod
           work-dir: ${{ github.workspace }}/infra # Location of Pulumi code
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
