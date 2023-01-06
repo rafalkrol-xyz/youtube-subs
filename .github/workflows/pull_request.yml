@@ -21,6 +21,7 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
 
+      - run: cd ${{ github.workspace }}/infra # Location of Pulumi code
       - run: pip install -r requirements.txt
       - uses: pulumi/actions@v3
         with:
