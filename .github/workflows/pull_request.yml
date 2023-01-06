@@ -21,11 +21,13 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
 
-      - run: cd ${{ github.workspace }}/infra # Location of Pulumi code
       - run: pip install -r requirements.txt
+        working-directory: ${{ github.workspace }}/infra # Location of Pulumi code
+
       - uses: pulumi/actions@v3
         with:
           command: preview
           stack-name: youtube-subs/prod
+          work-dir: ${{ github.workspace }}/infra # Location of Pulumi code
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
