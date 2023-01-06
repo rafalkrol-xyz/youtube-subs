@@ -3,15 +3,17 @@
 import pulumi
 from pulumi_gcp import storage, projects
 
+configGcp=pulumi.Config('gcp')
+
 projects.Service(
     resource_name='speech_to_text',
     service='speech.googleapis.com',
-    project=pulumi.Config('gcp').get('project'),
+    project=configGcp.get('project'),
 )
 
 bucket = storage.Bucket(
     resource_name='temporary_bucket_for_audio_files',
-    location='EUROPE-CENTRAL2',
+    location=configGcp.get('region'),
     public_access_prevention='enforced',
 )
 
