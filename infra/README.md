@@ -2,7 +2,7 @@
 
 ## Overview
 
-This folder is the home to the infrastructure necessary to run the YouTube Subs CLI tool.
+This folder is the home to the infrastructure necessary to run the YouTube Subs CLI.
 The Infrastructure as Code (IaC) tool being used is [Pulumi](https://www.pulumi.com/),
 and the language in which the infra configurations have been written is Python
 ([Python's venv](https://docs.python.org/3/library/venv.html) is utilized to manage project dependencies).
