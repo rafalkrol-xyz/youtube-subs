@@ -29,3 +29,21 @@ The infrastructure lives in the `./infra` directory
 the app's business logic lives in the `./src` directory,
 while the `setup.py` and other files necessary to package this CLI tool, live here, at the project's root.
 
+## Prerequisites
+
+### Infrastructure
+
+Before using the CLI or commencing with local development, you must **a) meet the infrastructure prerequisites**,
+and **b) stand up the infra using the `pulumi up` command**.
+
+_Refer to [the infra README](https://github.com/rafalkrol-xyz/youtube-subs/tree/main/infra#readme) for more details._
+
+### Application
+
+* [Python v3.10 or higher](https://www.python.org/)
+  * [wheel](https://pypi.org/project/wheel/), [setuptools](https://pypi.org/project/setuptools/),
+  and [twine](https://pypi.org/project/twine/):
+
+  ```bash
+  pip3 install wheel setuptools twine
+  ```
