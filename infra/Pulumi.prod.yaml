@@ -1,0 +1,15 @@
+config:
+  # NB, SWAP `EUROPE-CENTRAL2` FOR THE GCP REGION YOU WANT TO USE, E.G.:
+  #
+  # ```bash
+  # pulumi config set gcp:region EUROPE-WEST9
+  # ```
+  gcp:region: EUROPE-CENTRAL2
+  gcp:project:
+    # NB, SWAP `AAABAFrLR0kD/0RsIgTNNN7NHiOpuB3FV7pPbas/DR33g5LrdA3Um/zUEXE=`
+    # FOR YOUR GCP PROJECT ID ENCRYPTED USING THE `--secret` FLAG, E.G.:
+    #
+    # ```bash
+    # pulumi config set gcp:project YOUR-GCP-PROJECT-ID --secret
+    # ```
+    secure: AAABAFrLR0kD/0RsIgTNNN7NHiOpuB3FV7pPbas/DR33g5LrdA3Um/zUEXE=

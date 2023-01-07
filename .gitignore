@@ -1,0 +1,22 @@
+# Pulumi dependencies
+/bin/
+/node_modules/
+
+# Python's virtual environment
+venv
+
+# Pycache
+__pycache__
+
+# Python script's artifacts
+*.wav
+*.mp4
+*.srt
+
+# Python setuptools artifacts
+youtube_subs.egg-info
+build
+dist
+
+# macOS files
+.DS_Store

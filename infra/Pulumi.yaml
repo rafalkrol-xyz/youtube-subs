@@ -1,0 +1,6 @@
+name: youtube-subs
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: The GCP infrastructure necessary to run the youtube-subs CLI.

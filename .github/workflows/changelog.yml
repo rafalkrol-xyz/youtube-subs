@@ -1,0 +1,10 @@
+name: Changelog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-changelog-workflow:
+    uses: rafalkrol-xyz/github-actions-workflows/.github/workflows/changelog.yml@v1.2.0

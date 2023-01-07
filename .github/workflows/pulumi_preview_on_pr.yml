@@ -1,0 +1,38 @@
+name: Pulumi Preview on PR
+
+env:
+    WORK_DIR: ${{ github.workspace }}/infra # Location of Pulumi code
+
+on:
+  pull_request:
+    paths:
+      - $WORK_DIR
+
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - run: pip install -r requirements.txt
+        working-directory: $WORK_DIR
+
+      - uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: prod
+          work-dir: $WORK_DIR
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
