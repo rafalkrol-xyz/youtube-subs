@@ -15,6 +15,8 @@ __pycache__
 
 # Python setuptools artifacts
 youtube_subs.egg-info
+build
+dist
 
 # macOS files
 .DS_Store
