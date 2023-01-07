@@ -1,4 +1,4 @@
-name: Pulumi
+name: Pulumi Preview on PR
 
 env:
     WORK_DIR: ${{ github.workspace }}/infra # Location of Pulumi code
