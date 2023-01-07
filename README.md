@@ -77,6 +77,20 @@ python3 setup.py develop
 ys
 ```
 
+## Packaging & publishing
+
+**a)** create a package
+
+```bash
+python setup.py sdist bdist_wheel
+```
+
+**b)** publish to [Test PyPi](https://test.pypi.org/)
+
+```bash
+twine upload --repository testpypi --skip-existing dist/*
+```
+
 ## Acknowledgements
 
 * the main business logic relies heavily on [this blog post](https://medium.com/searce/generate-srt-file-subtitles-using-google-clouds-speech-to-text-api-402b2f1da3bd)
