@@ -41,12 +41,14 @@ _Refer to [the infra README](https://github.com/rafalkrol-xyz/youtube-subs/tree/
 ### Application
 
 * [Python v3.10 or higher](https://www.python.org/)
-  * [wheel](https://pypi.org/project/wheel/), [setuptools](https://pypi.org/project/setuptools/),
+* (OPTIONAL)[wheel](https://pypi.org/project/wheel/), [setuptools](https://pypi.org/project/setuptools/),
   and [twine](https://pypi.org/project/twine/):
 
   ```bash
   pip3 install wheel setuptools twine
   ```
+
+* (OPTIONAL) user account at [Test PyPi](https://test.pypi.org/)
 
 ## Local development
 
