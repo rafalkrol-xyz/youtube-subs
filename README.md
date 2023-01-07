@@ -19,3 +19,13 @@ picks up the the `audio.wav` file from the GCS bucket and transcribes it.
 6. Finally, the transcription (**not 100% accurate,
 but with timestamps!**) is saved as the `subtitles.srt` file on your computer.
 
+### Folder structure
+
+This project consists of a smaller, but still vital, infrastructure part,
+and a bigger, in terms of lines of code (LOC), application part.
+
+The infrastructure lives in the `./infra` directory
+(with [its own `REAMDE.md` file](https://github.com/rafalkrol-xyz/youtube-subs/tree/main/infra#readme)),
+the app's business logic lives in the `./src` directory,
+while the `setup.py` and other files necessary to package this CLI tool, live here, at the project's root.
+
