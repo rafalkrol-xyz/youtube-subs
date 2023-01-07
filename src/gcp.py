@@ -23,8 +23,20 @@ def list_buckets() -> list[str]:
     return bucket_names
 
 
-def upload_blob(bucket_name, source_file_name, destination_blob_name):
-    """Uploads a file to a given GCS bucket"""
+def upload_blob(bucket_name, source_file_name, destination_blob_name) -> str:
+    """
+    Uploads a file to a given GCS bucket.
+
+    :param bucket_name: str
+        The name of the GCS bucket.
+    :param source_file_name: str
+        The name to the file to be uploaded.
+    :param destination_blob_name: str
+        The name of the destination blob in the GCS bucket.
+
+    :return: str
+        The URL of the uploaded file in the GCS bucket (in the format 'gs://{bucket_name}/{destination_blob_name}').
+    """
 
     storage_client = storage.Client()
 
@@ -42,9 +54,20 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     return f'gs://{bucket_name}/{destination_blob_name}'
 
 
-def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_rate_hertz: int):
-    """Transcribe the given audio file synchronously with
-    the selected model."""
+def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_rate_hertz: int) -> speech.RecognitionAudio:
+    """
+    Transcribe the given audio file synchronously with the selected model.
+
+    :param gcs_uri: str
+        The GCS URI of the audio file to be transcribed.
+    :param audio_channel_count: int
+        The number of audio channels in the audio file.
+    :param sample_rate_hertz: int
+        The sample rate (in Hz) of the audio file.
+
+    :return: speech.RecognitionAudio
+        The response object containing the transcription results.
+    """
 
     client = speech.SpeechClient()
 
@@ -67,10 +90,15 @@ def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_ra
     return response
 
 
-def subtitle_generation(speech_to_text_response, bin_size=3):
-    """We define a bin of time period to display the words in sync with audio. 
-    Here, bin_size = 3 means each bin is of 3 secs. 
-    All the words in the interval of 3 secs in result will be grouped together."""
+def subtitle_generation(speech_to_text_response: speech.RecognitionAudio, bin_size: int = 3) -> list[srt.Subtitle]:
+    """Groups words in a given speech recognition result into bins of time and returns a list of srt subtitles.
+    
+    :param speech_to_text_response: speech.RecognitionAudio
+        The result of a speech recognition request.
+    :param bin_size: int
+        The number of seconds per time bin. Default is 3.
+    """
+
     transcriptions = []
     index = 0
 
