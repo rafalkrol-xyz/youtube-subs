@@ -74,3 +74,9 @@ python3 setup.py develop
 ```bash
 ys
 ```
+
+## Acknowledgements
+
+* the main business logic relies heavily on [this blog post](https://medium.com/searce/generate-srt-file-subtitles-using-google-clouds-speech-to-text-api-402b2f1da3bd)
+* [this article](https://medium.com/nerd-for-tech/how-to-build-and-distribute-a-cli-tool-with-python-537ae41d9d78)
+served me as a guidance for building and distributing a CLI tool in Python
