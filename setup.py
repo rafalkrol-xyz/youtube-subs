@@ -9,7 +9,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name='youtube-subs',
-    version='0.0.1',
+    version='0.1.0',
     author='Rafal Krol',
     author_email='ameotoko1+github@gmail.com',
     license='MIT',
