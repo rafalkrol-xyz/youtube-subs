@@ -1,7 +1,12 @@
 name: Pulumi
 
+env:
+    WORK_DIR: ${{ github.workspace }}/infra # Location of Pulumi code
+
 on:
-  - pull_request
+  pull_request:
+    paths:
+      - $WORK_DIR
 
 jobs:
   preview:
@@ -22,12 +27,12 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
 
       - run: pip install -r requirements.txt
-        working-directory: ${{ github.workspace }}/infra # Location of Pulumi code
+        working-directory: $WORK_DIR
 
       - uses: pulumi/actions@v3
         with:
           command: preview
           stack-name: prod
-          work-dir: ${{ github.workspace }}/infra # Location of Pulumi code
+          work-dir: $WORK_DIR
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
