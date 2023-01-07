@@ -50,6 +50,20 @@ _Refer to [the infra README](https://github.com/rafalkrol-xyz/youtube-subs/tree/
 
 * (OPTIONAL) user account at [Test PyPi](https://test.pypi.org/)
 
+## Usage
+
+**a)** download
+
+```bash
+pip install -i https://test.pypi.org/simple/ youtube-subs
+```
+
+**b)** run
+
+```bash
+ys generate https://www.youtube.com/watch?v=EgLCtVshp8E
+```
+
 ## Local development
 
 **a)** set up and activate Virtual Environment
