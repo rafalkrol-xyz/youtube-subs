@@ -47,3 +47,30 @@ _Refer to [the infra README](https://github.com/rafalkrol-xyz/youtube-subs/tree/
   ```bash
   pip3 install wheel setuptools twine
   ```
+
+## Local development
+
+**a)** set up and activate Virtual Environment
+
+```bash
+pip3 -m venv venv
+source venv/bin/activate
+```
+
+**b)** install dependencies
+
+```bash
+pip3 install -r requirements
+```
+
+**c)** build the tool for development
+
+```bash
+python3 setup.py develop
+```
+
+**d)** run the tool
+
+```bash
+ys
+```
