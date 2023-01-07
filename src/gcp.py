@@ -54,7 +54,7 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name) -> str:
     return f'gs://{bucket_name}/{destination_blob_name}'
 
 
-def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_rate_hertz: int) -> speech.RecognitionAudio:
+def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_rate_hertz: int, language_code: str = "pl-Pl") -> speech.RecognitionAudio:
     """
     Transcribe the given audio file synchronously with the selected model.
 
@@ -64,6 +64,11 @@ def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_ra
         The number of audio channels in the audio file.
     :param sample_rate_hertz: int
         The sample rate (in Hz) of the audio file.
+    :param language_code: str
+        A BCP-47 language tag for one of GCP's Speech-to-Text supported languages.
+        Defaults to "pl-Pl" for Polish.
+        Please consult the full list of supported languages here:
+        https://cloud.google.com/speech-to-text/docs/speech-to-text-supported-languages.
 
     :return: speech.RecognitionAudio
         The response object containing the transcription results.
@@ -77,7 +82,7 @@ def transcribe_model_selection(gcs_uri: str, audio_channel_count: int, sample_ra
         encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
         audio_channel_count=audio_channel_count,
         sample_rate_hertz=sample_rate_hertz,
-        language_code="pl-PL",
+        language_code=language_code,
         model="latest_long",
         enable_word_time_offsets=True,
     )

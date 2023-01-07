@@ -22,10 +22,19 @@ def cli():
               By default the CLI will use a bucket containing `temporary_bucket_for_audio_files` in its name.
               """,
               default=None)
+@click.option('-l', '--language',
+              type=str,
+              help="""
+              A BCP-47 language tag for one of GCP's Speech-to-Text supported languages.
+              It must match the language of the YouTube video.
+              By default the CLI will use `pl-Pl` for Polish.
+              Some common options: en-US, en-GB, it-IT, ja-JP, ko-KR.
+              """,
+              default="pl-Pl")
 @click.argument('youtube_link')
-def generate(youtube_link, bucket):
+def generate(youtube_link, bucket, language):
     """
     Generate subtitles for a YouTube video passed via the YOUTUBE_LINK argument.
     E.g. ys generate https://www.youtube.com/watch?v=EgLCtVshp8E
     """
-    app.main(youtube_link, bucket)
+    app.main(youtube_link, bucket, language)

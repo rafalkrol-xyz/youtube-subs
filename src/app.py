@@ -3,7 +3,7 @@ from src.video import download, info, video_to_audio
 from src.gcp import list_buckets, upload_blob, transcribe_model_selection, subtitle_generation
 
 
-def main(youtube_link: str, bucket_for_audio_files: str = None):
+def main(youtube_link: str, bucket_for_audio_files: str = None, language_code: str = "pl-Pl"):
     video_path = download(youtube_link)
 
     if bucket_for_audio_files is None:
@@ -20,7 +20,7 @@ def main(youtube_link: str, bucket_for_audio_files: str = None):
 
     gcs_uri = upload_blob(bucket_for_audio_files, audio_filename, f'audios/{audio_filename}')
 
-    response = transcribe_model_selection(gcs_uri, channels, sample_rate)
+    response = transcribe_model_selection(gcs_uri, channels, sample_rate, language_code)
 
     subtitles = subtitle_generation(response)
     print(subtitles)
