@@ -1,0 +1,38 @@
+name: Pulumi Up on Merge
+
+env:
+    WORK_DIR: ${{ github.workspace }}/infra # Location of Pulumi code
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    name: Update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - run: pip install -r requirements.txt
+        working-directory: $WORK_DIR
+
+      - uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: prod
+          work-dir: $WORK_DIR
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
